@@ -3,19 +3,19 @@
 # version: 0.1
 # authors: Roragok
 
+class ::PostCreator
+  module HiddenPrivateMessagesPostCreator
+    def update_user_counts
 
-require_dependency 'post_creator'
-module HiddenPrivateMessages
-   def update_user_counts
-      super
-      unless @post.topic.private_message?
-      time = @post.created_at
-      end
-      Rails.logger.error "USER VARIABLE -  '#{@user}'!"
-      @user.update_attributes(last_posted_at: time)
-   end
-end
 
-class PostCreator
-   prepend HiddenPrivateMessages
+       time = @user.last_posted_at
+       unless @post.topic.private_message?
+         time = @post.created_at
+       end
+
+       super
+       @user.update_attributes(last_posted_at: time)
+    end
+  end
+  prepend HiddenPrivateMessagesPostCreator
 end
