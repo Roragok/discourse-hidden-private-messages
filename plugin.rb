@@ -7,8 +7,8 @@ class ::PostCreator
   module HiddenPrivateMessagesPostCreator
     def update_user_counts
 
-
        time = @user.last_posted_at
+
        unless @post.topic.private_message?
          time = @post.created_at
        end
