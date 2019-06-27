@@ -2,6 +2,7 @@
 # about: Disables updating`last_posted_at ` when a user sends a private message
 # version: 0.1
 # authors: Roragok
+# url: https://github.com/Roragok/discourse-hidden-private-messages
 
 class ::PostCreator
   module HiddenPrivateMessagesPostCreator
