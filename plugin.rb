@@ -14,7 +14,7 @@ class ::PostCreator
        end
 
        super
-       @user.update_attributes(last_posted_at: time)
+       @user.update(last_posted_at: time)
     end
   end
   prepend HiddenPrivateMessagesPostCreator
